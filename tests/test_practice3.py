@@ -14,16 +14,22 @@ from tasks.practice3.practice3 import (
     [
         (
 <<<<<<< HEAD
+<<<<<<< HEAD
             'In the face of ambiguity, refuse the temptation to guess. '
             'NotWord7 7NotWord! 777',
 =======
             'In the face of ambiguity, refuse the temptation to guess. 777',
 >>>>>>> c34e0cb (Practice 3 and 4)
+=======
+            'In the face of ambiguity, refuse the temptation to guess. '
+            'NotWord7 7NotWord! 777',
+>>>>>>> 7b33e67 (Practice 3 - Fix tests for func count_words)
             {
                 'in': 1,
                 'the': 2,
                 'face': 1,
                 'of': 1,
+<<<<<<< HEAD
 <<<<<<< HEAD
                 'ambiguity': 1,
                 'refuse': 1,
@@ -39,17 +45,28 @@ from tasks.practice3.practice3 import (
         ('NotWord123 Word 111', {'word': 1}),
 =======
                 'ambiguity,': 1,
+=======
+                'ambiguity': 1,
+>>>>>>> 7b33e67 (Practice 3 - Fix tests for func count_words)
                 'refuse': 1,
                 'temptation': 1,
                 'to': 1,
+                'guess': 1,
             },
         ),
         ('', {}),
+<<<<<<< HEAD
         ('123 test', {'test': 1}),
         ('test test', {'test': 2}),
         ('test Test', {'test': 2}),
         ('test123 Test 111', {'test': 1}),
 >>>>>>> c34e0cb (Practice 3 and 4)
+=======
+        ('123 - word', {'word': 1}),
+        ('word word!', {'word': 2}),
+        ('word Word...', {'word': 2}),
+        ('NotWord123 Word 111', {'word': 1}),
+>>>>>>> 7b33e67 (Practice 3 - Fix tests for func count_words)
     ],
 )
 def test_count_words(text, result):
