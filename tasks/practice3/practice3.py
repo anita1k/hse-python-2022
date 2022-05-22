@@ -1,10 +1,15 @@
 from pathlib import Path
+<<<<<<< HEAD
 from typing import Dict, Any, List, Optional
+=======
+from typing import Dict, Any, List
+>>>>>>> c34e0cb (Practice 3 and 4)
 
 
 def count_words(text: str) -> Dict[str, int]:
     """
     Функция для подсчета слов в тексте.
+<<<<<<< HEAD
 
     При подсчете слов - все знаки препинания игнорируются.
     Словом считается непрерывная последовательность длиной больше одного
@@ -13,6 +18,10 @@ def count_words(text: str) -> Dict[str, int]:
 
     Hello - слово
     Hello7 - не слово
+=======
+    Словом считается последовательность длиной больше одного символа,
+    состоящая из букв в диапазоне A-Z и a-z.
+>>>>>>> c34e0cb (Practice 3 and 4)
 
     При подсчете слов регистр букв не имеет значения.
 
@@ -58,6 +67,7 @@ def get_cashback(operations: List[Dict[str, Any]], special_category: List[str]) 
     :return: размер кешбека
     """
 
+<<<<<<< HEAD
     res = 0
     for x in operations:
         if x['category'] in special_category:
@@ -81,6 +91,14 @@ def get_path_to_file() -> Optional[Path]:
     else:
         base_path = Path().resolve()
     return base_path / 'tasks' / 'practice3' / 'tasks.csv'
+=======
+    # пиши свой код здесь
+
+    return 0.0
+
+
+PATH_TO_FILE = Path().resolve().parent / 'tasks' / 'practice3' / 'tasks.csv'
+>>>>>>> c34e0cb (Practice 3 and 4)
 
 
 def csv_reader(header: str) -> int:
@@ -96,7 +114,11 @@ def csv_reader(header: str) -> int:
 
     Файл для анализа: tasks.csv
     Для того чтобы файл корректно открывался в тестах:
+<<<<<<< HEAD
     для получения пути до файла - используйте функцию get_path_to_file
+=======
+    используйте в качестве пути к файлу переменную PATH_TO_FILE,
+>>>>>>> c34e0cb (Practice 3 and 4)
     которая определена перед функцией.
 
     CSV анализируем с помощью встроенной библиотеки csv

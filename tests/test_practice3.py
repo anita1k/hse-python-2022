@@ -13,13 +13,18 @@ from tasks.practice3.practice3 import (
     ('text', 'result'),
     [
         (
+<<<<<<< HEAD
             'In the face of ambiguity, refuse the temptation to guess. '
             'NotWord7 7NotWord! 777',
+=======
+            'In the face of ambiguity, refuse the temptation to guess. 777',
+>>>>>>> c34e0cb (Practice 3 and 4)
             {
                 'in': 1,
                 'the': 2,
                 'face': 1,
                 'of': 1,
+<<<<<<< HEAD
                 'ambiguity': 1,
                 'refuse': 1,
                 'temptation': 1,
@@ -32,6 +37,19 @@ from tasks.practice3.practice3 import (
         ('word word!', {'word': 2}),
         ('word Word...', {'word': 2}),
         ('NotWord123 Word 111', {'word': 1}),
+=======
+                'ambiguity,': 1,
+                'refuse': 1,
+                'temptation': 1,
+                'to': 1,
+            },
+        ),
+        ('', {}),
+        ('123 test', {'test': 1}),
+        ('test test', {'test': 2}),
+        ('test Test', {'test': 2}),
+        ('test123 Test 111', {'test': 1}),
+>>>>>>> c34e0cb (Practice 3 and 4)
     ],
 )
 def test_count_words(text, result):
@@ -58,7 +76,11 @@ def test_exp_list(numbers, exp, result):
                 {'amount': 77, 'category': 'flowers'},
             ],
             ['auto'],
+<<<<<<< HEAD
             5.77,
+=======
+            7.77,
+>>>>>>> c34e0cb (Practice 3 and 4)
         ),
     ],
 )
