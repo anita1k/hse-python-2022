@@ -94,10 +94,14 @@ def test_exp_list(numbers, exp, result):
             ],
             ['auto'],
 <<<<<<< HEAD
+<<<<<<< HEAD
             5.77,
 =======
             7.77,
 >>>>>>> c34e0cb (Practice 3 and 4)
+=======
+            5.77,
+>>>>>>> 55d96f7 (Practice 3 - Fix tests for func get_cashback and correct resolv path to file)
         ),
     ],
 )

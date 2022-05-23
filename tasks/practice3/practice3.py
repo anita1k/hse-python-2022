@@ -1,9 +1,13 @@
 from pathlib import Path
 <<<<<<< HEAD
+<<<<<<< HEAD
 from typing import Dict, Any, List, Optional
 =======
 from typing import Dict, Any, List
 >>>>>>> c34e0cb (Practice 3 and 4)
+=======
+from typing import Dict, Any, List, Optional
+>>>>>>> 55d96f7 (Practice 3 - Fix tests for func get_cashback and correct resolv path to file)
 
 
 def count_words(text: str) -> Dict[str, int]:
@@ -74,6 +78,9 @@ def get_cashback(operations: List[Dict[str, Any]], special_category: List[str]) 
     """
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 55d96f7 (Practice 3 - Fix tests for func get_cashback and correct resolv path to file)
     res = 0
     for x in operations:
         if x['category'] in special_category:
@@ -82,6 +89,7 @@ def get_cashback(operations: List[Dict[str, Any]], special_category: List[str]) 
             res += x['amount'] * 0.01
     return res
 
+<<<<<<< HEAD
 
 def get_path_to_file() -> Optional[Path]:
     """
@@ -99,12 +107,28 @@ def get_path_to_file() -> Optional[Path]:
     return base_path / 'tasks' / 'practice3' / 'tasks.csv'
 =======
     # пиши свой код здесь
+=======
+>>>>>>> 55d96f7 (Practice 3 - Fix tests for func get_cashback and correct resolv path to file)
 
-    return 0.0
+def get_path_to_file() -> Optional[Path]:
+    """
+    Находит корректный путь до тестового файла.
 
+    Если запускать тесты из pycharm - начальная папка - tests
+    Если запускать файлы через make tests - начальная папка - корень проекта
 
+<<<<<<< HEAD
 PATH_TO_FILE = Path().resolve().parent / 'tasks' / 'practice3' / 'tasks.csv'
 >>>>>>> c34e0cb (Practice 3 and 4)
+=======
+    :return: путь до тестового файла tasks.csv
+    """
+    if Path().resolve().name == 'tests':
+        base_path = Path().resolve().parent
+    else:
+        base_path = Path().resolve()
+    return base_path / 'tasks' / 'practice3' / 'tasks.csv'
+>>>>>>> 55d96f7 (Practice 3 - Fix tests for func get_cashback and correct resolv path to file)
 
 
 def csv_reader(header: str) -> int:
@@ -121,10 +145,14 @@ def csv_reader(header: str) -> int:
     Файл для анализа: tasks.csv
     Для того чтобы файл корректно открывался в тестах:
 <<<<<<< HEAD
+<<<<<<< HEAD
     для получения пути до файла - используйте функцию get_path_to_file
 =======
     используйте в качестве пути к файлу переменную PATH_TO_FILE,
 >>>>>>> c34e0cb (Practice 3 and 4)
+=======
+    для получения пути до файла - используйте функцию get_path_to_file
+>>>>>>> 55d96f7 (Practice 3 - Fix tests for func get_cashback and correct resolv path to file)
     которая определена перед функцией.
 
     CSV анализируем с помощью встроенной библиотеки csv
