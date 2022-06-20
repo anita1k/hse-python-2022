@@ -1,22 +1,12 @@
+import string
 from pathlib import Path
-<<<<<<< HEAD
-<<<<<<< HEAD
 from typing import Dict, Any, List, Optional
-=======
-from typing import Dict, Any, List
->>>>>>> c34e0cb (Practice 3 and 4)
-=======
-from typing import Dict, Any, List, Optional
->>>>>>> 55d96f7 (Practice 3 - Fix tests for func get_cashback and correct resolv path to file)
+import csv
 
 
 def count_words(text: str) -> Dict[str, int]:
     """
     Функция для подсчета слов в тексте.
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7b33e67 (Practice 3 - Fix tests for func count_words)
 
     При подсчете слов - все знаки препинания игнорируются.
     Словом считается непрерывная последовательность длиной больше одного
@@ -25,13 +15,6 @@ def count_words(text: str) -> Dict[str, int]:
 
     Hello - слово
     Hello7 - не слово
-<<<<<<< HEAD
-=======
-    Словом считается последовательность длиной больше одного символа,
-    состоящая из букв в диапазоне A-Z и a-z.
->>>>>>> c34e0cb (Practice 3 and 4)
-=======
->>>>>>> 7b33e67 (Practice 3 - Fix tests for func count_words)
 
     При подсчете слов регистр букв не имеет значения.
 
@@ -46,8 +29,21 @@ def count_words(text: str) -> Dict[str, int]:
     """
 
     # пиши свой код здесь
+    dict = {}
+    text = text.lower()
+    parts_of_text = list(text.split(' '))
+    i = 0
+    while i < len(parts_of_text):
+        parts_of_text[i] = parts_of_text[i].strip(string.punctuation)
+        x = parts_of_text[i]
+        if len(x) < 2 or not x.isalpha():
+            parts_of_text.remove(x)
+        else:
+            i += 1
+    for x in parts_of_text:
+        dict[x] = parts_of_text.count(x)
 
-    return {}
+    return dict
 
 
 def exp_list(numbers: List[int], exp: int) -> List[int]:
@@ -60,8 +56,7 @@ def exp_list(numbers: List[int], exp: int) -> List[int]:
     """
 
     # пиши свой код здесь
-
-    return []
+    return list(map(lambda x: x**exp, numbers))
 
 
 def get_cashback(operations: List[Dict[str, Any]], special_category: List[str]) -> float:
@@ -77,19 +72,14 @@ def get_cashback(operations: List[Dict[str, Any]], special_category: List[str]) 
     :return: размер кешбека
     """
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 55d96f7 (Practice 3 - Fix tests for func get_cashback and correct resolv path to file)
     res = 0
-    for x in operations:
-        if x['category'] in special_category:
-            res += x['amount'] * 0.05
+    for operation in operations:
+        if operation['category'] in special_category:
+            res += operation['amount'] * 0.05
         else:
-            res += x['amount'] * 0.01
+            res += operation['amount'] * 0.01
     return res
 
-<<<<<<< HEAD
 
 def get_path_to_file() -> Optional[Path]:
     """
@@ -105,30 +95,6 @@ def get_path_to_file() -> Optional[Path]:
     else:
         base_path = Path().resolve()
     return base_path / 'tasks' / 'practice3' / 'tasks.csv'
-=======
-    # пиши свой код здесь
-=======
->>>>>>> 55d96f7 (Practice 3 - Fix tests for func get_cashback and correct resolv path to file)
-
-def get_path_to_file() -> Optional[Path]:
-    """
-    Находит корректный путь до тестового файла.
-
-    Если запускать тесты из pycharm - начальная папка - tests
-    Если запускать файлы через make tests - начальная папка - корень проекта
-
-<<<<<<< HEAD
-PATH_TO_FILE = Path().resolve().parent / 'tasks' / 'practice3' / 'tasks.csv'
->>>>>>> c34e0cb (Practice 3 and 4)
-=======
-    :return: путь до тестового файла tasks.csv
-    """
-    if Path().resolve().name == 'tests':
-        base_path = Path().resolve().parent
-    else:
-        base_path = Path().resolve()
-    return base_path / 'tasks' / 'practice3' / 'tasks.csv'
->>>>>>> 55d96f7 (Practice 3 - Fix tests for func get_cashback and correct resolv path to file)
 
 
 def csv_reader(header: str) -> int:
@@ -144,15 +110,7 @@ def csv_reader(header: str) -> int:
 
     Файл для анализа: tasks.csv
     Для того чтобы файл корректно открывался в тестах:
-<<<<<<< HEAD
-<<<<<<< HEAD
     для получения пути до файла - используйте функцию get_path_to_file
-=======
-    используйте в качестве пути к файлу переменную PATH_TO_FILE,
->>>>>>> c34e0cb (Practice 3 and 4)
-=======
-    для получения пути до файла - используйте функцию get_path_to_file
->>>>>>> 55d96f7 (Practice 3 - Fix tests for func get_cashback and correct resolv path to file)
     которая определена перед функцией.
 
     CSV анализируем с помощью встроенной библиотеки csv
@@ -162,5 +120,19 @@ def csv_reader(header: str) -> int:
     """
 
     # пиши свой код здесь
+    words = []
+    with open(get_path_to_file(), newline='') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+        count = 0
+        for row in reader:
+            if count == 0:
+                num_title = row.index(header)
+                count = 1
+            else:
+                words.append(row[num_title])
 
-    return 0
+    words = set(words)
+    return len(words)
+
+
+print(csv_reader('Project Name'))
